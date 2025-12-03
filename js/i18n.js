@@ -257,6 +257,7 @@ const translations = {
             subtitle: '무료 상담',
             title: '프로젝트 문의하기',
             description: '궁금하신 점이 있으시면 언제든지 연락주세요. 24시간 이내 답변드립니다.',
+              description: '전화로 문의 바랍니다.',
             info_title: '연락처 정보',
             phone_label: '전화',
             phone_hours: '평일 09:00 - 18:00',
