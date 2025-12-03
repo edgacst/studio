@@ -2208,3 +2208,26 @@ body.lang-zh .hero {
         justify-content: center;
     }
 }
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    min-width: 240px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px);
+}
