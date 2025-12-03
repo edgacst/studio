@@ -482,30 +482,6 @@ window.addEventListener('scroll', throttle(() => {
     scrollTop();
 }, 100));
 
-// ------------------------
-// 토스트 알림 기능
-// ------------------------
-const toast = document.getElementById("toast");
-const contactForm = document.getElementById("contactForm");
-
-function showToast(message, duration = 3000) {
-    toast.textContent = message;
-
-    // 표시
-    toast.classList.add("show");
-
-    // 사라지기
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, duration);
-}
-
-// 폼 제출 시 토스트 표시
-contactForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // 실제 제출 막기 (원하면 제거 가능)
-
-    showToast("상담 신청이 접수되었습니다! 문자/전화로 곧 연락드리겠습니다.");
-});
 
 
 
