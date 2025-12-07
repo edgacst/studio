@@ -679,44 +679,58 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name" data-i18n="contact.name_label">이름 *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" data-i18n="contact.phone_input_label">연락처 *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-i18n="contact.email_input_label">이메일</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="service" data-i18n="contact.service_label">희망 서비스</label>
-                        <select id="service" name="service">
-                            <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
-                            <option value="basic" data-i18n="contact.service_basic">기본 패키지</option>
-                            <option value="standard" data-i18n="contact.service_standard">표준 패키지</option>
-                            <option value="premium" data-i18n="contact.service_premium">프리미엄 패키지</option>
-                            <option value="consulting" data-i18n="contact.service_consult">상담만</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>
-                        <textarea id="message" name="message" rows="5" required data-placeholder-i18n="contact.message_placeholder" placeholder="어떤 웹사이트를 만들고 싶으신가요? 자세히 알려주세요."></textarea>
-                    </div>
-                    <div class="form-group full">
-                        <label class="checkbox-label">
-                            <input type="checkbox" required>
-                            <span data-i18n="contact.privacy_agree">개인정보 수집 및 이용에 동의합니다</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <i class="fas fa-paper-plane"></i> <span data-i18n="contact.submit_button">상담 신청하기</span>
-                    </button>
-                </form>
-            </div>
+              <form class="contact-form" id="contactForm" 
+      method="POST" 
+      action="YOUR_WEB_APP_URL_HERE">
+
+    <div class="form-group">
+        <label for="name" data-i18n="contact.name_label">이름 *</label>
+        <input type="text" id="name" name="이름" required>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" data-i18n="contact.phone_input_label">연락처 *</label>
+        <input type="tel" id="phone" name="연락처" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email" data-i18n="contact.email_input_label">이메일</label>
+        <input type="email" id="email" name="이메일">
+    </div>
+
+    <div class="form-group">
+        <label for="service" data-i18n="contact.service_label">희망 서비스</label>
+        <select id="service" name="희망서비스">
+            <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
+            <option value="basic" data-i18n="contact.service_basic">기본 패키지</option>
+            <option value="standard" data-i18n="contact.service_standard">표준 패키지</option>
+            <option value="premium" data-i18n="contact.service_premium">프리미엄 패키지</option>
+            <option value="consulting" data-i18n="contact.service_consult">상담만</option>
+        </select>
+    </div>
+
+    <div class="form-group full">
+        <label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>
+        <textarea id="message" name="프로젝트설명" rows="5"
+                  required
+                  data-placeholder-i18n="contact.message_placeholder"
+                  placeholder="어떤 웹사이트를 만들고 싶으신가요? 자세히 알려주세요."></textarea>
+    </div>
+
+    <div class="form-group full">
+        <label class="checkbox-label">
+            <input type="checkbox" required name="개인정보동의">
+            <span data-i18n="contact.privacy_agree">개인정보 수집 및 이용에 동의합니다</span>
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-large">
+        <i class="fas fa-paper-plane"></i>
+        <span data-i18n="contact.submit_button">상담 신청하기</span>
+    </button>
+
+</form>
+
        
         </div>
     </section>
