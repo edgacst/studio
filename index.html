@@ -680,29 +680,26 @@
                     </div>
                 </div>
 <form class="contact-Form" id="contactForm">
-      method="POST"
-      action="https://script.google.com/macros/s/AKfycbxO7TI99ezhw44qS82DeHnxp_4YwKZagjPA5eHZ_KVfO5t1tDElKTIuQkGPewFvgUr_/exec">
-
 
     <div class="form-group">
-        <label for="name" data-i18n="contact.name_label">이름 *</label>
+        <label for="name">이름 *</label>
         <input type="text" id="name" name="이름" required>
     </div>
 
     <div class="form-group">
-        <label for="phone" data-i18n="contact.phone_input_label">연락처 *</label>
+        <label for="phone">연락처 *</label>
         <input type="tel" id="phone" name="연락처" required>
     </div>
 
     <div class="form-group">
-        <label for="email" data-i18n="contact.email_input_label">이메일</label>
+        <label for="email">이메일</label>
         <input type="email" id="email" name="이메일">
     </div>
 
     <div class="form-group">
-        <label for="service" data-i18n="contact.service_label">희망서비스</label>
+        <label for="service">희망서비스</label>
         <select id="service" name="희망서비스">
-            <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
+            <option value="">선택해주세요</option>
             <option value="basic">기본 패키지</option>
             <option value="standard">표준 패키지</option>
             <option value="premium">프리미엄 패키지</option>
@@ -711,21 +708,21 @@
     </div>
 
     <div class="form-group full">
-        <label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>
+        <label for="message">프로젝트 설명 *</label>
         <textarea id="message" name="프로젝트설명" rows="5" required></textarea>
     </div>
 
     <div class="form-group full">
         <label class="checkbox-label">
             <input type="checkbox" name="개인정보수집동의여부" value="동의" required>
-            <span>개인정보 수집 및 이용에 동의합니다</span>
+            개인정보 수집 및 이용에 동의합니다
         </label>
     </div>
 
     <button type="submit" class="btn btn-primary btn-large">
-        <i class="fas fa-paper-plane"></i>
         상담 신청하기
     </button>
+
 </form>
 
 <script>
@@ -734,10 +731,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("contactForm");
 
     form.addEventListener("submit", function(e) {
-        e.preventDefault(); // 기본 제출 막기
+        e.preventDefault();
 
-       const url = "https://script.google.com/macros/s/AKfycbxO7TI99ezhw44qS82DeHnxp_4YwKZagjPA5eHZ_KVfO5t1tDElKTIuQkGPewFvgUr_/exec";
-
+        const url = "https://script.google.com/macros/s/AKfycbxO7TI99ezhw44qS82DeHnxp_4YwKZagjPA5eHZ_KVfO5t1tDElKTIuQkGPewFvgUr_/exec";
         const formData = new FormData(form);
 
         fetch(url, {
