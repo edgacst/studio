@@ -679,7 +679,7 @@
                         </div>
                     </div>
                 </div>
-              <form class="contact-form" id="contactForm" 
+<form class="contact-form" id="contactForm" 
       method="POST" 
       action="YOUR_WEB_APP_URL_HERE">
 
@@ -699,7 +699,7 @@
     </div>
 
     <div class="form-group">
-        <label for="service" data-i18n="contact.service_label">희망 서비스</label>
+        <label for="service" data-i18n="contact.service_label">희망서비스</label>
         <select id="service" name="희망서비스">
             <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
             <option value="basic" data-i18n="contact.service_basic">기본 패키지</option>
@@ -719,7 +719,7 @@
 
     <div class="form-group full">
         <label class="checkbox-label">
-            <input type="checkbox" required name="개인정보동의">
+            <input type="checkbox" name="개인정보수집동의여부" value="동의" required>
             <span data-i18n="contact.privacy_agree">개인정보 수집 및 이용에 동의합니다</span>
         </label>
     </div>
@@ -730,6 +730,7 @@
     </button>
 
 </form>
+
 
        
         </div>
