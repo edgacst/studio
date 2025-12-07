@@ -702,53 +702,55 @@
         <label for="service" data-i18n="contact.service_label">희망서비스</label>
         <select id="service" name="희망서비스">
             <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
-            <option value="basic" data-i18n="contact.service_basic">기본 패키지</option>
-            <option value="standard" data-i18n="contact.service_standard">표준 패키지</option>
-            <option value="premium" data-i18n="contact.service_premium">프리미엄 패키지</option>
-            <option value="consulting" data-i18n="contact.service_consult">상담만</option>
+            <option value="basic">기본 패키지</option>
+            <option value="standard">표준 패키지</option>
+            <option value="premium">프리미엄 패키지</option>
+            <option value="consulting">상담만</option>
         </select>
     </div>
 
     <div class="form-group full">
         <label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>
-        <textarea id="message" name="프로젝트설명" rows="5"
-                  required
-                  data-placeholder-i18n="contact.message_placeholder"
-                  placeholder="어떤 웹사이트를 만들고 싶으신가요? 자세히 알려주세요."></textarea>
+        <textarea id="message" name="프로젝트설명" rows="5" required></textarea>
     </div>
 
     <div class="form-group full">
         <label class="checkbox-label">
             <input type="checkbox" name="개인정보수집동의여부" value="동의" required>
-            <span data-i18n="contact.privacy_agree">개인정보 수집 및 이용에 동의합니다</span>
+            <span>개인정보 수집 및 이용에 동의합니다</span>
         </label>
     </div>
 
     <button type="submit" class="btn btn-primary btn-large">
         <i class="fas fa-paper-plane"></i>
-        <span data-i18n="contact.submit_button">상담 신청하기</span>
+        상담 신청하기
     </button>
-
 </form>
+
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // 기본 제출 막기
+document.addEventListener("DOMContentLoaded", function() {
 
-    const form = e.target;
-    const url = "";
+    const form = document.getElementById("contactForm");
 
-    const formData = new FormData(form);
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // 기본 제출 막기
 
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
+        const url = "https://script.google.com/macros/s/AKfycbx2hU5HBduRUWO8sTvNjJn1RDPjcQ9ZMJgb66e8qVKheXy4UkUPFTKBfKhpYaqHfv2m/exec";
+        const formData = new FormData(form);
+
+        fetch(url, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        });
+
+        alert("문의가 정상적으로 접수되었습니다!");
+        form.reset();
     });
 
-    alert("문의가 정상적으로 접수되었습니다!");
-    form.reset();
 });
 </script>
+
 
 
        
