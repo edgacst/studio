@@ -93,9 +93,9 @@ const translations = {
             tab_images: '이미지',
             tab_videos: '동영상',
             item1: {
-                category: '소상공인',
-                title: '따뜻한 카페',
-                desc: '모던하고 감성적인 카페 웹사이트'
+                category: '기업홍보',
+                title: '회사 웹사이트',
+                desc: '다국어를 지원하는 글로벌웹사이트'
             },
             item2: {
                 category: '레스토랑',
