@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="지혜로운 손길 - 경험과 지혜가 담긴 홈페이지 제작 전문 회사. AI 기술로 빠르고 전문적인 웹사이트를 제작합니다.">
+        <meta name="keywords" content="홈페이지 제작, 웹사이트 제작, 소상공인 홈페이지, 중소기업 웹사이트, 컴퓨터 프로그램, 회계 관리 프로그램, 자동화 프로그램">
+    <title>지혜로운 손길 - 홈페이지 제작 전문</title>
+    <!-- Open Graph 메타태그 -->
+    <meta property="og:title" content="지혜로운 손길 - 홈페이지 제작 전문">
+    <meta property="og:description" content="경험과 지혜가 담긴 홈페이지 제작 전문 회사. AI 기술로 빠르고 전문적인 웹사이트를 제작합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wisehands.kr/">
+    <meta property="og:image" content="https://wisehands.kr/images/og-image.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 헤더 & 네비게이션 -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>지혜로운 손길</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active" data-i18n="nav.home">홈</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link" data-i18n="nav.services">서비스</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">포트폴리오</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link" data-i18n="nav.pricing">가격안내</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-i18n="nav.about">회사소개</a></li>
+                    <li class="nav-item"><a href="#video" class="nav-link" data-i18n="nav.video">소개영상</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="nav.contact">문의하기</a></li>
+                    <li class="nav-item"><a href="board.html" class="nav-link">상담 게시판</a></li>
+                    <li class="nav-item nav-item-language">
+                        <div class="language-dropdown">
+                            <div class="lang-current" id="currentLang" style="cursor:pointer;display:flex;align-items:center;gap:4px;">
+                                <img src="https://flagcdn.com/w20/kr.png" alt="한국어" width="20">
+                                <span>한국어</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="lang-menu" id="langMenu">
+                                <div class="lang-option" data-lang="ko" data-name="한국어" data-flag="kr">
+                                    <img src="https://flagcdn.com/w20/kr.png" alt="한국어" width="16">
+                                    <span>한국어</span>
+                                    <span class="lang-code">KO</span>
+                                </div>
+                                <div class="lang-option" data-lang="en" data-name="English" data-flag="us">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="English" width="16">
+                                    <span>English</span>
+                                    <span class="lang-code">EN</span>
+                                </div>
+                                <div class="lang-option" data-lang="ja" data-name="日本語" data-flag="jp">
+                                    <img src="https://flagcdn.com/w20/jp.png" alt="日本語" width="16">
+                                    <span>日本語</span>
+                                    <span class="lang-code">JA</span>
+                                </div>
+                                <div class="lang-option" data-lang="zh" data-name="中文" data-flag="cn">
+                                    <img src="https://flagcdn.com/w20/cn.png" alt="中文" width="16">
+                                    <span>中文</span>
+                                    <span class="lang-code">ZH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <!-- 메인 히어로 섹션 -->
+    <section class="hero hero-fullbg" id="home">
+        <div class="hero-bg-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-container container">
+            <div class="hero-content">
+                <span class="hero-subtitle" data-i18n="hero.subtitle">경험과 지혜가 담긴</span>
+                <h1 class="hero-title">
+                    <span data-i18n="hero.title1">당신의 성공을 위한</span><br>
+                    <span class="highlight" data-i18n="hero.title2">지혜로운 손길</span>
+                </h1>
+                <p class="hero-description" data-i18n="hero.description">
+                    65년의 인생경험과 최첨단 AI 기술이 만나 당신의 비즈니스를 위한 완벽한 웹사이트를 만듭니다
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="hero.cta1">무료 상담 신청</span>
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary">
+                        <i class="fas fa-folder-open"></i> <span data-i18n="hero.cta2">포트폴리오 보기</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label" data-i18n="hero.stat1">프로젝트 완료</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label" data-i18n="hero.stat2">고객 만족도</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label" data-i18n="hero.stat3">평균 응답 시간</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 특징 섹션 -->
+    <section class="features section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="features.subtitle">왜 지혜로운 손길인가요?</span>
+                <h2 class="section-title" data-i18n="features.title">우리의 차별화된 강점</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title1">65년의 경험</h3>
+                    <p class="feature-description" data-i18n="features.desc1">
+                        오랜 인생 경험으로 고객의 진짜 니즈를 이해하고, 
+                        사업의 본질을 담아내는 웹사이트를 제작합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title2">AI 기술 활용</h3>
+                    <p class="feature-description" data-i18n="features.desc2">
+                        최첨단 젠스파크 AI 기술로 빠르고 정확하게,
+                        3-5배 빠른 제작 속도를 자랑합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title3">따뜻한 소통</h3>
+                    <p class="feature-description" data-i18n="features.desc3">
+                        IT 용어가 어려운 고객도 편안하게,
+                        눈높이에 맞춘 친절한 상담과 서비스를 제공합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-won-sign"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title4">합리적 가격</h3>
+                    <p class="feature-description" data-i18n="features.desc4">
+                        AI 자동화로 인건비를 절감하여,
+                        고품질 웹사이트를 경쟁사 대비 20-30% 저렴하게 제공합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title5">완벽한 반응형</h3>
+                    <p class="feature-description" data-i18n="features.desc5">
+                        PC, 태블릿, 모바일 모든 기기에서 완벽하게 작동하는
+                        반응형 웹사이트를 제작합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.title6">평생 지원</h3>
+                    <p class="feature-description" data-i18n="features.desc6">
+                        제작 후에도 지속적인 유지보수와 상담,
+                        고객 성공이 우리의 성공입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 섹션 -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="services.subtitle">맞춤형 솔루션</span>
+                <h2 class="section-title" data-i18n="services.title">제공 서비스</h2>
+                <p class="section-description" data-i18n="services.description">소상공인부터 대기업까지, 모든 규모의 비즈니스를 위한 최적의 웹 솔루션</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-store"></i>
+                        <h3 data-i18n="services.small.title">소상공인 홈페이지</h3>
+                    </div>
+                    <p class="service-description" data-i18n="services.small.desc">
+                        카페, 식당, 미용실 등 소상공인을 위한 맞춤형 웹사이트.
+                        메뉴 소개, 위치 안내, 예약 기능 등을 포함합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.small.feature1">기본 5페이지 구성</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.small.feature2">반응형 디자인</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.small.feature3">지도/연락처 통합</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.small.feature4">SNS 연동</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-building"></i>
+                        <h3 data-i18n="services.corporate.title">기업 홈페이지</h3>
+                    </div>
+                    <p class="service-description" data-i18n="services.corporate.desc">
+                        중소기업, 스타트업을 위한 전문적인 기업 웹사이트.
+                        회사 소개, 서비스 안내, 포트폴리오 등을 구축합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.corporate.feature1">10페이지 이상 구성</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.corporate.feature2">관리자 페이지</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.corporate.feature3">게시판/뉴스 기능</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.corporate.feature4">SEO 최적화</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3 data-i18n="services.shop.title">쇼핑몫</h3>
+                    </div>
+                    <p class="service-description" data-i18n="services.shop.desc">
+                        온라인 판매를 위한 전자상거래 웹사이트.
+                        상품 등록, 장바구니, 결제 시스템까지 통합 구축합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.shop.feature1">상품 관리 시스템</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.shop.feature2">장바구니 기능</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.shop.feature3">결제 연동</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.shop.feature4">주문 관리</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-user-tie"></i>
+                        <h3 data-i18n="services.portfolio.title">개인 포트폴리오</h3>
+                    </div>
+                    <p class="service-description" data-i18n="services.portfolio.desc">
+                        프리랜서, 전문가를 위한 개인 브랜딩 웹사이트.
+                        경력, 작품, 연락처를 세련되게 소개합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.portfolio.feature1">세련된 디자인</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.portfolio.feature2">작품 갤러리</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.portfolio.feature3">이력서 통합</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.portfolio.feature4">문의 양식</span></li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-building"></i>
+                        <h3 data-i18n="services.etcprogram.title">기타 프로그램</h3>
+                    </div>
+                    <p class="service-description" data-i18n="services.etcprogram.desc">
+                        중소기업자동화프로그램, 회계프로그램, 교회헌금관리프로그렘.
+                        음원공유프로그램 등을 구축합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <a href="https://soundwave-cpyn.onrender.com" target="_blank"><span data-i18n="services.etcprogram.feature1">음원공유사이트 바로가기</span></a></li>
+                        <li><i class="fas fa-check"></i> <a href="https://edga.pythonanywhere.com" target="_blank"><span data-i18n="services.etcprogram.feature2">교회재정프로그램=데모버전사용해보기</span></a></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.etcprogram.feature3">컴퓨타프로그램</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="services.etcprogram.feature4">그외 프로그램</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 포트폴리오 섹션 -->
+    <section class="portfolio section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="portfolio.subtitle">우리의 작품들</span>
+                <h2 class="section-title" data-i18n="portfolio.title">제작 사례</h2>
+            </div>
+            
+            <!-- 포트폴리오 탭 -->
+            <div class="portfolio-tabs">
+                <button class="portfolio-tab active" data-tab="images">
+                    <i class="fas fa-image"></i> <span data-i18n="portfolio.tab_images">이미지</span>
+                </button>
+                <button class="portfolio-tab" data-tab="videos">
+                    <i class="fas fa-video"></i> <span data-i18n="portfolio.tab_videos">동영상</span>
+                </button>
+            </div>
+
+            <!-- 이미지 포트폴리오 -->
+            <div class="portfolio-content active" id="images">
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=eXBzyqfoWSzMvrjSQ1NRbH70e8Znk7MdBXdNFXPRMFqt9IWZBUCz2xJ3wviObtvI6pPwmn1imZ0Il0LyAMfdI0728s3JeEMmXdmRt5WOX1Ed&u2=dWCGWpAKBfksEn4D&width=2560" alt="카페 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item1.category">소상공인</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item1.title">따뜻한 카페</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item1.desc">모던하고 감성적인 카페 웹사이트</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=YkxQcE%2F2HbMHFur6m58M9ncTDk2tJ4if6wmrMsHgwaW57defNhEFLfgrP%2Fl8RENYAPS4aAlCEp8rYA8Z%2BkMmAeKMrdE3v1tlUIoF7cQr&u2=7zOvL%2BotqwsdQj3%2F&width=2560" alt="레스토랑 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item2.category">레스토랑</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item2.title">미식당</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item2.desc">고급스러운 레스토랑 홈페이지</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=e%2FA8QUx5K1nq94pm5e2YcDrVyLN1er6UAQ0cKDqTw3iPa9TgOEwm3qPyub1e5pQRAraSMFiAwZAOpp2zl631Ix5yKYeZzEaqlNwN3EVxkvgsj6n4HBEDdZP04Kkz1ioRQDbP9Ig8V8pxp%2FKS7sGxQYmhdl4xi4y2GrsAwL0%3D&u2=vv7g1dUqFrerhnxG&width=2560" alt="부동산 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item3.category">부동산</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item3.title">프리미엄 부동산</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item3.desc">럭셔리 부동산 중개 사이트</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=x7ElXl06xTIvTYi5PDESPSd0%2Bf1wJDaDsbwTHArpzCC72BkceWxYbICFbNb2wzx0MTx7kf3PvI2PcC3mKWA2XrKwFz4MBa45kB3%2FYamumWFhUzx04PLuVtfJkjZp4D%2FS41cZDceX03IcwR%2FK7nIH&u2=GZTT4UQn1X2XoRGU&width=2560" alt="스파 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item4.category">뷰티</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item4.title">엘레강스 스파</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item4.desc">럭셔리 스파 & 뷰티 웹사이트</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=HCoOzJAomNUxag2B%2FLv8cmAwq%2FS9sH5ciufuptB%2FP0SPl04Pp9zSBnEt7qZfcgsfcSpWb4mBuoysPDQ0BDnts5MUO7T1aiZ5j97oFDRfjvPue5qgJfwhFWbQ7DeKBO3LIiNWhEpDasq0dL7CwSCmUpnPulat%2B4BgSGDvx%2FJRVtDcMjAd5bxIK3QrkognyI4KhYIcW6fC56uXZGUHk%2FzD3fJOQr1NMhNz%2Fg%2FRcbZqNX71wUicq3%2FVbByY79q1Dy%2F%2F%2F77GwUpE&u2=wsRlRwbQc335mFi7&width=2560" alt="IT 기업 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item5.category">IT</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item5.title">테크 이노베이션</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item5.desc">혁신적인 IT 스타트업</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=tpWKx3rqEAZ35EyX3iUULbJP6XtgW6p3XlzZzrA1MYtzbMTq1qR3%2FeOpplGjrXOgsUyrqIbfxmF807n3boKkTUamMe7892ym9vXqPOnU2c5%2B07DV%2FyRYTj25FjHp3L0q&u2=%2Bq4sk5S7FMOXoA1%2F&width=2560" alt="기업 웹사이트" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category" data-i18n="portfolio.item6.category">기업</span>
+                        <h3 class="portfolio-title" data-i18n="portfolio.item6.title">글로벌 엔터프라이즈</h3>
+                        <p class="portfolio-description" data-i18n="portfolio.item6.desc">대기업 공식 홈페이지</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- 동영상 포트폴리오 -->
+            <div class="portfolio-content" id="videos">
+                <div class="video-portfolio-grid">
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8NvnO0Badu4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video1.title">웹 디자인 쇼케이스</h3>
+                            <p data-i18n="portfolio.video1.desc">모던하고 세련된 웹사이트 디자인 포트폴리오</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 0:30</span>
+                        </div>
+                    </div>
+
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8eLItjVpLhc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video2.title">웹사이트 쇼케이스 템플릿</h3>
+                            <p data-i18n="portfolio.video2.desc">전문적인 웹사이트 프레젠테이션 디자인</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 0:29</span>
+                        </div>
+                    </div>
+
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RGWXVbkrYKM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video3.title">2025 웹 디자인 트렌드</h3>
+                            <p data-i18n="portfolio.video3.desc">최신 웹 디자인 기술과 트렌드 소개</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 0:59</span>
+                        </div>
+                    </div>
+
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JQcpJlaGw18" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video4.title">웹사이트 쇼케이스 2023</h3>
+                            <p data-i18n="portfolio.video4.desc">다양한 웹 프로젝트 포트폴리오 모음</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 1:45</span>
+                        </div>
+                    </div>
+
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5_BxqNC3aLs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video5.title">웹사이트 데모 프레젠테이션</h3>
+                            <p data-i18n="portfolio.video5.desc">전문적인 웹사이트 소개 영상 템플릿</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 0:52</span>
+                        </div>
+                    </div>
+
+                    <div class="video-portfolio-card">
+                        <div class="video-wrapper-portfolio">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/E-fdPfRxkzQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-portfolio-info">
+                            <h3 data-i18n="portfolio.video6.title">3D 웹 개발자 포트폴리오</h3>
+                            <p data-i18n="portfolio.video6.desc">React와 Three.js를 활용한 혁신적인 포트폴리오</p>
+                            <span class="video-duration"><i class="fas fa-clock"></i> 3:15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 가격 섹션 -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="pricing.subtitle">투명한 가격</span>
+                <h2 class="section-title" data-i18n="pricing.title">가격 안내</h2>
+                <p class="section-description" data-i18n="pricing.description">합리적이고 명확한 가격으로, 숨은 비용은 없습니다</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <span class="pricing-badge" data-i18n="pricing.badge_popular">인기</span>
+                        <h3 class="pricing-title" data-i18n="pricing.basic.title">기본 패키지</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount" data-i18n="pricing.basic.price">80만원</span>
+                            <span class="price-period" data-i18n="pricing.basic.period">부터</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature1">5페이지 구성</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature2">반응형 디자인</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature3">기본 SEO 설정</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature4">문의 양식</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature5">지도 통합</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.basic.feature6">1개월 무료 수정</span></li>
+                        <li class="disabled"><i class="fas fa-times"></i> 관리자 페이지</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 게시판 기능</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline"><span data-i18n="pricing.basic.button">선택하기</span></a>
+                    <p class="pricing-note" data-i18n="pricing.basic.note">소상공인, 개인사업자 추천</p>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <span class="pricing-badge popular" data-i18n="pricing.badge_recommended">추천</span>
+                        <h3 class="pricing-title" data-i18n="pricing.standard.title">표준 패키지</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount" data-i18n="pricing.standard.price">250만원</span>
+                            <span class="price-period" data-i18n="pricing.standard.period">부터</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature1">10페이지 구성</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature2">반응형 디자인</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature3">프리미엄 SEO</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature4">문의 양식</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature5">지도 통합</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature6">3개월 무료 수정</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature7">관리자 페이지</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.standard.feature8">게시판 기능</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary"><span data-i18n="pricing.standard.button">선택하기</span></a>
+                    <p class="pricing-note" data-i18n="pricing.standard.note">중소기업, 스타트업 추천</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <span class="pricing-badge" data-i18n="pricing.badge_premium">프리미엄</span>
+                        <h3 class="pricing-title" data-i18n="pricing.premium.title">프리미엄 패키지</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount" data-i18n="pricing.premium.price">500만원</span>
+                            <span class="price-period" data-i18n="pricing.premium.period">부터</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature1">무제한 페이지</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature2">반응형 디자인</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature3">고급 SEO 최적화</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature4">맞춤 기능 개발</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature5">고급 애니메이션</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature6">6개월 무료 수정</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature7">관리자 페이지</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="pricing.premium.feature8">게시판 + 회원 시스템</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline"><span data-i18n="pricing.premium.button">선택하기</span></a>
+                    <p class="pricing-note" data-i18n="pricing.premium.note">쇼핑몰, 대형 프로젝트 추천</p>
+                </div>
+            </div>
+            <div class="pricing-extra">
+                <h3 data-i18n="pricing.extra_title">추가 서비스</h3>
+                <div class="extra-services">
+                    <div class="extra-item">
+                        <i class="fas fa-tools"></i>
+                        <span data-i18n="pricing.extra_maintenance">월 유지보수</span>
+                        <strong data-i18n="pricing.extra_maintenance_price">월 15만원</strong>
+                    </div>
+                    <div class="extra-item">
+                        <i class="fas fa-globe"></i>
+                        <span data-i18n="pricing.extra_hosting">호스팅 & 도메인</span>
+                        <strong data-i18n="pricing.extra_hosting_price">연 10만원</strong>
+                    </div>
+                    <div class="extra-item">
+                        <i class="fas fa-edit"></i>
+                        <span data-i18n="pricing.extra_content">콘텐츠 작성</span>
+                        <strong data-i18n="pricing.extra_content_price">페이지당 5만원</strong>
+                    </div>
+                    <div class="extra-item">
+                        <i class="fas fa-camera"></i>
+                        <span data-i18n="pricing.extra_photo">사진 촬영</span>
+                        <strong data-i18n="pricing.extra_photo_price">별도 견적</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 회사 소개 섹션 -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <div class="about-img-wrapper">
+                        <img src="https://www.genspark.ai/api/files/s/LyOkJW7d" alt="김기철 대표" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    </div>
+                    <div class="about-badge">
+                        <i class="fas fa-award"></i>
+                        <span data-i18n="about.ceo_badge">65세 현역</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-subtitle" data-i18n="about.subtitle">우리를 소개합니다</span>
+                    <h2 class="section-title" data-i18n="about.title">나이는 숫자일 뿐,<br>경험은 자산입니다</h2>
+                    <p class="about-description" data-i18n="about.content1">
+                        저는 65세에 새로운 도전을 시작했습니다. 
+                        평생 쌓아온 비즈니스 경험과 사람을 대하는 지혜에 
+                        최첨단 AI 기술을 더해 홈페이지 제작업을 시작했습니다.
+                    </p>
+                    <p class="about-description" data-i18n="about.content2">
+                        젊은 업체들은 기술은 있지만 고객의 마음을 이해하는 데 시간이 걸립니다.
+                        하지만 저희는 다릅니다. 긴 인생을 살아온 경험으로 
+                        고객이 진짜 원하는 것이 무엇인지 귀 기울여 듣고 이해합니다.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <strong data-i18n="about.company_name">회사명</strong>
+                                <p>(주)에드가씨에스티</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <strong data-i18n="about.ceo">대표자</strong>
+                                <p>김기철</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-file-alt"></i>
+                            <div>
+                                <strong data-i18n="about.business_number">사업자번호</strong>
+                                <p>634-81-02760</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong data-i18n="about.address_label">주소</strong>
+                                <p><span data-i18n="about.address_line1">경기도 부천시 원미구</span><br><span data-i18n="about.address_line2">송내대로74번길 34, B103호</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-values">
+                        <h3 data-i18n="about.values_title">우리의 가치</h3>
+                        <ul>
+                            <li><i class="fas fa-heart"></i> <strong data-i18n="about.value1_title">진정성</strong> - <span data-i18n="about.value1_desc">고객과의 솔직하고 따뜻한 소통</span></li>
+                            <li><i class="fas fa-handshake"></i> <strong data-i18n="about.value2_title">신뢰</strong> - <span data-i18n="about.value2_desc">약속을 지키고 책임지는 자세</span></li>
+                            <li><i class="fas fa-lightbulb"></i> <strong data-i18n="about.value3_title">혁신</strong> - <span data-i18n="about.value3_desc">나이에 구애받지 않는 배움의 자세</span></li>
+                            <li><i class="fas fa-trophy"></i> <strong data-i18n="about.value4_title">품질</strong> - <span data-i18n="about.value4_desc">타협하지 않는 최고의 결과물</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 소개 영상 섹션 -->
+    <section class="video-section section" id="video">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="video.subtitle">영상으로 만나보세요</span>
+                <h2 class="section-title" data-i18n="video.title">회사 소개 영상</h2>
+                <p class="section-description" data-i18n="video.description">지혜로운 손길의 이야기를 영상으로 만나보세요</p>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p data-i18n="video.placeholder">소개 영상 준비 중입니다</p>
+                        <small data-i18n="video.coming_soon">곧 멋진 영상으로 찾아뵙겠습니다</small>
+                    </div>
+                    <!-- 실제 영상 추가 시 아래 코드 사용
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="YOUR_VIDEO_URL" 
+                        title="지혜로운 손길 소개 영상" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    -->
+                </div>
+                <div class="video-info">
+                    <h3 data-i18n="video.content_title">영상에서 확인하실 수 있는 내용</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="video.content1">김기철 대표의 인사말</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="video.content2">회사 비전과 철학</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="video.content3">제작 프로세스 소개</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="video.content4">고객 성공 사례</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="video.content5">AI 기술 활용 방법</span></li>
+                    </ul>
+                    <div class="video-cta">
+                        <p><i class="fas fa-video"></i> <span data-i18n="video.contact_text">영상 제작 문의:</span> <strong>010-8447-9973</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 문의 섹션 -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="contact.subtitle">무료 상담</span>
+                <h2 class="section-title" data-i18n="contact.title">프로젝트 문의하기</h2>
+                <p class="section-description" data-i18n="contact.description">궁금하신 점이 있으시면 언제든지 연락주세요. 24시간 이내 답변드립니다.</p>
+        
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-i18n="contact.info_title">연락처 정보</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong data-i18n="contact.phone_label">전화</strong>
+                            <p>010-8447-9973</p>
+                            <small data-i18n="contact.phone_hours">평일 09:00 - 18:00</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong data-i18n="contact.email_label">이메일</strong>
+                            <p>freecompr@naver.com</p>
+                            <small data-i18n="contact.email_hours">24시간 접수 가능</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong data-i18n="contact.address_label">주소</strong>
+                            <p><span data-i18n="contact.address_line1">경기도 부천시 원미구</span><br><span data-i18n="contact.address_line2">송내대로74번길 34, B103호</span></p>
+                            <small data-i18n="contact.address_note">방문 상담 환영 (사전 예약)</small>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h4 data-i18n="contact.social_title">소셜 미디어</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.name_label">이름 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-i18n="contact.phone_input_label">연락처 *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.email_input_label">이메일</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service" data-i18n="contact.service_label">희망 서비스</label>
+                        <select id="service" name="service">
+                            <option value="" data-i18n="contact.service_placeholder">선택해주세요</option>
+                            <option value="basic" data-i18n="contact.service_basic">기본 패키지</option>
+                            <option value="standard" data-i18n="contact.service_standard">표준 패키지</option>
+                            <option value="premium" data-i18n="contact.service_premium">프리미엄 패키지</option>
+                            <option value="consulting" data-i18n="contact.service_consult">상담만</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>
+                        <textarea id="message" name="message" rows="5" required data-i18n="contact.message_placeholder" data-i18n-placeholder placeholder="어떤 웹사이트를 만들고 싶으신가요? 자세히 알려주세요."></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span data-i18n="contact.privacy_agree">개인정보 수집 및 이용에 동의합니다</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="contact.submit_button">상담 신청하기</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <span>지혜로운 손길</span>
+                    </div>
+                    <p class="footer-description">
+                        <span data-i18n="footer.company_desc1">경험과 지혜가 담긴 홈페이지 제작 전문 기업</span><br>
+                        <span data-i18n="footer.company_desc2">당신의 성공을 함께 만들어갑니다.</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.services_title">서비스</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><span data-i18n="services.small.title">소상공인 홈페이지</span></a></li>
+                        <li><a href="#services"><span data-i18n="services.corporate.title">기업 홈페이지</span></a></li>
+                        <li><a href="#services"><span data-i18n="services.shop.title">쇼핑몰</span></a></li>
+                        <li><a href="#services"><span data-i18n="services.portfolio.title">개인 포트폴리오</span></a></li>
+                        <li><a href="board.html">상담 게시판</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.company">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about"><span data-i18n="nav.about">회사소개</span></a></li>
+                        <li><a href="#portfolio"><span data-i18n="nav.portfolio">포트폴리오</span></a></li>
+                        <li><a href="#pricing"><span data-i18n="nav.pricing">가격안내</span></a></li>
+                        <li><a href="#contact"><span data-i18n="footer.contact">문의하기</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support_title">고객지원</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html"><span data-i18n="footer.faq">자주 묻는 질문</span></a></li>
+                        <li><a href="terms.html"><span data-i18n="footer.terms">이용약관</span></a></li>
+                        <li><a href="privacy.html"><span data-i18n="footer.privacy">개인정보처리방침</span></a></li>
+                        <li><a href="#contact"><span data-i18n="footer.contact">문의하기</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-company-info">
+                    <p><strong>(주)에드가씨에스티</strong> | 대표자: 김기철 | 사업자번호: 634-81-02760</p>
+                    <p><span data-i18n="footer.address_label">주소</span>: <span data-i18n="footer.address_line1">경기도 부천시 원미구</span><br><span data-i18n="footer.address_line2">송내대로74번길 34, B103호</span></p>
+                </div>
+                <div class="footer-copyright">
+                    <p><span data-i18n="footer.copyright">&copy; 2025 지혜로운 손길. All rights reserved.</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

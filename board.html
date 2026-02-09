@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담 게시판</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .board-container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 32px; height: 200px; overflow-y: auto; }
+        .board-title { font-size: 2rem; font-weight: bold; margin-bottom: 24px; }
+        .board-table { width: 100%; border-collapse: collapse; }
+        .board-table th, .board-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        .board-table th { background: #f7f7f7; }
+        .board-table tr:nth-child(even) { background: #fafafa; }
+        .board-table td.message { white-space: pre-line; }
+    </style>
+</head>
+<body>
+    <div class="board-container">
+        <div class="board-title">상담 게시판</div>
+        <table class="board-table">
+            <thead>
+                <tr>
+                    <th>날짜</th>
+                    <th>이름</th>
+                    <th>연락처</th>
+                    <th>이메일</th>
+                    <th>서비스</th>
+                    <th>상담내용</th>
+                </tr>
+            </thead>
+            <tbody id="boardBody">
+                <tr><td colspan="6">불러오는 중...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+    // 구글 시트의 공개 CSV URL로 변경 필요
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOYaUw3AwumbNC5qh-sqLiMDPRVm9GEJHI-hCjRuRAJCUTqy0fpqxRzRKzRUI8yXBFboAFgape9TVI/pub?output=csv';
+
+    async function loadBoard() {
+        const tbody = document.getElementById('boardBody');
+        try {
+            const res = await fetch(SHEET_CSV_URL);
+            const text = await res.text();
+            const rows = text.split('\n').map(row => row.split(','));
+            tbody.innerHTML = '';
+            // 첫 행은 헤더이므로 1행부터 출력
+            for (let i = 1; i < rows.length; i++) {
+                const r = rows[i];
+                if (r.length < 6) continue;
+                tbody.innerHTML += `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td class="message">${r[5]}</td></tr>`;
+            }
+            if (tbody.innerHTML === '') {
+                tbody.innerHTML = '<tr><td colspan="6">상담 내역이 없습니다.</td></tr>';
+            }
+        } catch (e) {
+            tbody.innerHTML = '<tr><td colspan="6">불러오기 오류</td></tr>';
+        }
+    }
+    loadBoard();
+    </script>
+</body>
+</html>
