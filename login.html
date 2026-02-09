@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="지혜로운 손길 로그인 - 회원 전용 서비스">
+    <title>로그인 - 지혜로운 손길</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-dark);
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .auth-container {
+            background: var(--white-color);
+            border-radius: 24px;
+            padding: 60px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-logo a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .auth-logo i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .auth-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--secondary-color);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            cursor: pointer;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .forgot-link {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .forgot-link:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 18px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-auth:hover {
+            background: #E8C049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 32px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 16px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--white-color);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .social-btn:hover {
+            border-color: var(--secondary-color);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+
+        .social-btn.google {
+            color: #DB4437;
+        }
+
+        .social-btn.kakao {
+            color: #FEE500;
+            background: #FEE500;
+            border-color: #FEE500;
+        }
+
+        .social-btn.kakao span {
+            color: #3C1E1E;
+        }
+
+        .social-btn.naver {
+            color: #03C75A;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .auth-footer p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .auth-footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--white-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .back-home:hover {
+            color: var(--secondary-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .auth-container {
+                padding: 40px 30px;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span>홈으로 돌아가기</span>
+        </a>
+
+        <div class="auth-container">
+            <div class="auth-logo">
+                <a href="index.html">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>지혜로운 손길</span>
+                </a>
+            </div>
+
+            <h1 class="auth-title">로그인</h1>
+            <p class="auth-subtitle">회원 전용 서비스를 이용하세요</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="8자 이상 입력해주세요" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            <i class="fas fa-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">로그인 상태 유지</label>
+                    </div>
+                    <a href="#" class="forgot-link">비밀번호 찾기</a>
+                </div>
+
+                <button type="submit" class="btn-auth">로그인</button>
+            </form>
+
+            <div class="divider">
+                <span>또는</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn google" onclick="socialLogin('google')">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn kakao" onclick="socialLogin('kakao')">
+                    <i class="fas fa-comment"></i>
+                    <span>Kakao</span>
+                </button>
+                <button class="social-btn naver" onclick="socialLogin('naver')">
+                    <span style="font-weight: 900;">N</span>
+                    <span>Naver</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>아직 회원이 아니신가요? <a href="signup.html">회원가입</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 비밀번호 표시/숨김
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // 로그인 폼 제출
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // 실제 환경에서는 서버로 전송
+            console.log('로그인 시도:', { email, password, remember });
+            
+            // 임시 알림
+            alert('로그인 기능은 백엔드 연동 후 작동합니다.\n\n입력하신 정보:\n이메일: ' + email);
+            
+            // 성공 시 메인 페이지로 이동
+            // window.location.href = 'index.html';
+        });
+
+        // 소셜 로그인
+        function socialLogin(provider) {
+            alert(provider.toUpperCase() + ' 로그인은 백엔드 연동 후 작동합니다.');
+            console.log('소셜 로그인:', provider);
+        }
+    </script>
+</body>
+</html>

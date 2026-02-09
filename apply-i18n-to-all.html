@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>번역 자동 적용 도구</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2C5F7C;
+            margin-bottom: 30px;
+        }
+        .button {
+            background: #2C5F7C;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .button:hover {
+            background: #1e4158;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f8ff;
+            border-left: 4px solid #2C5F7C;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌏 다국어 번역 자동 적용 도구</h1>
+        
+        <div class="info status">
+            <strong>📝 사용 방법:</strong><br>
+            1. "index.html 파일 선택" 버튼 클릭<br>
+            2. 프로젝트의 index.html 파일 선택<br>
+            3. "번역 적용하기" 버튼 클릭<br>
+            4. 생성된 파일을 다운로드하여 기존 index.html을 교체
+        </div>
+
+        <input type="file" id="fileInput" accept=".html" style="display: none;">
+        <button class="button" onclick="document.getElementById('fileInput').click()">
+            📁 index.html 파일 선택
+        </button>
+        <button class="button" id="processBtn" onclick="processFile()" disabled>
+            ✨ 번역 적용하기
+        </button>
+        <button class="button" id="downloadBtn" onclick="downloadFile()" disabled style="background: #28a745;">
+            💾 수정된 파일 다운로드
+        </button>
+
+        <div id="status"></div>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        let fileContent = '';
+        let processedContent = '';
+        let fileName = 'index.html';
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                fileName = file.name;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    fileContent = e.target.result;
+                    document.getElementById('status').innerHTML = `
+                        <div class="success status">
+                            ✅ 파일 "${fileName}" 로드 완료! (${(fileContent.length / 1024).toFixed(2)} KB)
+                        </div>
+                    `;
+                    document.getElementById('processBtn').disabled = false;
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        function processFile() {
+            if (!fileContent) {
+                alert('먼저 파일을 선택해주세요!');
+                return;
+            }
+
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = '<div class="info status">⏳ 번역 적용 중...</div>';
+
+            // 번역 매핑
+            const translations = [
+                // Video Section
+                ['<span class="section-subtitle">영상으로 만나보세요</span>', '<span class="section-subtitle" data-i18n="video.subtitle">영상으로 만나보세요</span>'],
+                ['<h2 class="section-title">회사 소개 영상</h2>', '<h2 class="section-title" data-i18n="video.title">회사 소개 영상</h2>'],
+                ['<p class="section-description">지혜로운 손길의 이야기를 영상으로 만나보세요</p>', '<p class="section-description" data-i18n="video.description">지혜로운 손길의 이야기를 영상으로 만나보세요</p>'],
+                ['<p>소개 영상 준비 중입니다</p>', '<p data-i18n="video.placeholder">소개 영상 준비 중입니다</p>'],
+                ['<small>곧 멋진 영상으로 찾아뵙겠습니다</small>', '<small data-i18n="video.coming_soon">곧 멋진 영상으로 찾아뵙겠습니다</small>'],
+                ['<h3>영상에서 확인하실 수 있는 내용</h3>', '<h3 data-i18n="video.content_title">영상에서 확인하실 수 있는 내용</h3>'],
+                
+                // Contact Section
+                ['<span class="section-subtitle">무료 상담</span>', '<span class="section-subtitle" data-i18n="contact.subtitle">무료 상담</span>'],
+                ['<h2 class="section-title">프로젝트 문의하기</h2>', '<h2 class="section-title" data-i18n="contact.title">프로젝트 문의하기</h2>'],
+                ['<h3>연락처 정보</h3>', '<h3 data-i18n="contact.info_title">연락처 정보</h3>'],
+                ['<strong>전화</strong>', '<strong data-i18n="contact.phone_label">전화</strong>'],
+                ['<small>평일 09:00 - 18:00</small>', '<small data-i18n="contact.phone_hours">평일 09:00 - 18:00</small>'],
+                ['<strong>이메일</strong>', '<strong data-i18n="contact.email_label">이메일</strong>'],
+                ['<small>24시간 접수 가능</small>', '<small data-i18n="contact.email_hours">24시간 접수 가능</small>'],
+                ['<strong>주소</strong>', '<strong data-i18n="contact.address_label">주소</strong>'],
+                ['<small>방문 상담 환영 (사전 예약)</small>', '<small data-i18n="contact.address_note">방문 상담 환영 (사전 예약)</small>'],
+                ['<h4>소셜 미디어</h4>', '<h4 data-i18n="contact.social_title">소셜 미디어</h4>'],
+                ['<label for="name">이름 *</label>', '<label for="name" data-i18n="contact.name_label">이름 *</label>'],
+                ['<label for="phone">연락처 *</label>', '<label for="phone" data-i18n="contact.phone_input_label">연락처 *</label>'],
+                ['<label for="email">이메일</label>', '<label for="email" data-i18n="contact.email_input_label">이메일</label>'],
+                ['<label for="service">희망 서비스</label>', '<label for="service" data-i18n="contact.service_label">희망 서비스</label>'],
+                ['<label for="message">프로젝트 설명 *</label>', '<label for="message" data-i18n="contact.message_label">프로젝트 설명 *</label>'],
+                ['<option value="">선택해주세요</option>', '<option value="" data-i18n="contact.service_placeholder">선택해주세요</option>'],
+                ['<option value="basic">기본 패키지</option>', '<option value="basic" data-i18n="contact.service_basic">기본 패키지</option>'],
+                ['<option value="standard">표준 패키지</option>', '<option value="standard" data-i18n="contact.service_standard">표준 패키지</option>'],
+                ['<option value="premium">프리미엄 패키지</option>', '<option value="premium" data-i18n="contact.service_premium">프리미엄 패키지</option>'],
+                ['<option value="consulting">상담만</option>', '<option value="consulting" data-i18n="contact.service_consult">상담만</option>'],
+                
+                // Pricing Extra
+                ['<h3>추가 서비스</h3>', '<h3 data-i18n="pricing.extra_title">추가 서비스</h3>'],
+                ['<span>월 유지보수</span>', '<span data-i18n="pricing.extra_maintenance">월 유지보수</span>'],
+                ['<strong>월 15만원</strong>', '<strong data-i18n="pricing.extra_maintenance_price">월 15만원</strong>'],
+                ['<span>호스팅 & 도메인</span>', '<span data-i18n="pricing.extra_hosting">호스팅 & 도메인</span>'],
+                ['<strong>연 10만원</strong>', '<strong data-i18n="pricing.extra_hosting_price">연 10만원</strong>'],
+                ['<span>콘텐츠 작성</span>', '<span data-i18n="pricing.extra_content">콘텐츠 작성</span>'],
+                ['<strong>페이지당 5만원</strong>', '<strong data-i18n="pricing.extra_content_price">페이지당 5만원</strong>'],
+                ['<span>사진 촬영</span>', '<span data-i18n="pricing.extra_photo">사진 촬영</span>'],
+                ['<strong>별도 견적</strong>', '<strong data-i18n="pricing.extra_photo_price">별도 견적</strong>'],
+                
+                // About Values
+                ['<h3>우리의 가치</h3>', '<h3 data-i18n="about.values_title">우리의 가치</h3>'],
+                ['<strong>진정성</strong>', '<strong data-i18n="about.value1_title">진정성</strong>'],
+                ['고객과의 솔직하고 따뜻한 소통', '<span data-i18n="about.value1_desc">고객과의 솔직하고 따뜻한 소통</span>'],
+                ['<strong>신뢰</strong>', '<strong data-i18n="about.value2_title">신뢰</strong>'],
+                ['약속을 지키고 책임지는 자세', '<span data-i18n="about.value2_desc">약속을 지키고 책임지는 자세</span>'],
+                ['<strong>혁신</strong>', '<strong data-i18n="about.value3_title">혁신</strong>'],
+                ['나이에 구애받지 않는 배움의 자세', '<span data-i18n="about.value3_desc">나이에 구애받지 않는 배움의 자세</span>'],
+                ['<strong>품질</strong>', '<strong data-i18n="about.value4_title">품질</strong>'],
+                ['타협하지 않는 최고의 결과물', '<span data-i18n="about.value4_desc">타협하지 않는 최고의 결과물</span>']
+            ];
+
+            processedContent = fileContent;
+            let appliedCount = 0;
+
+            translations.forEach(([original, translated]) => {
+                if (processedContent.includes(original)) {
+                    processedContent = processedContent.replace(original, translated);
+                    appliedCount++;
+                }
+            });
+
+            statusDiv.innerHTML = `
+                <div class="success status">
+                    ✅ 번역 적용 완료!<br>
+                    📊 총 ${appliedCount}개의 번역 항목이 적용되었습니다.
+                </div>
+            `;
+
+            document.getElementById('downloadBtn').disabled = false;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').textContent = `적용된 번역: ${appliedCount}개\n\n파일 크기: ${(processedContent.length / 1024).toFixed(2)} KB`;
+        }
+
+        function downloadFile() {
+            const blob = new Blob([processedContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index-translated.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            document.getElementById('status').innerHTML += `
+                <div class="success status">
+                    💾 파일 다운로드 완료!<br>
+                    "index-translated.html"을 기존 index.html로 교체하세요.
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

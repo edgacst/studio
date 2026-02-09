@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="지혜로운 손길 회원가입 - 프리미엄 웹 제작 서비스">
+    <title>회원가입 - 지혜로운 손길</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-dark);
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .auth-container {
+            background: var(--white-color);
+            border-radius: 24px;
+            padding: 60px;
+            max-width: 540px;
+            width: 100%;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-logo a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .auth-logo i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .auth-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #e74c3c;
+        }
+
+        .form-control.success {
+            border-color: #2ecc71;
+        }
+
+        .form-message {
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .form-message.error {
+            color: #e74c3c;
+        }
+
+        .form-message.success {
+            color: #2ecc71;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--secondary-color);
+        }
+
+        .password-strength {
+            margin-top: 12px;
+        }
+
+        .strength-bars {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .strength-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .strength-bar.active.weak {
+            background: #e74c3c;
+        }
+
+        .strength-bar.active.medium {
+            background: #f39c12;
+        }
+
+        .strength-bar.active.strong {
+            background: #2ecc71;
+        }
+
+        .strength-text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .terms-group {
+            margin: 32px 0;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 12px;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .checkbox-wrapper:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: 2px;
+        }
+
+        .checkbox-wrapper label {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            cursor: pointer;
+            margin: 0;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .checkbox-wrapper.all-agree {
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .checkbox-wrapper.all-agree label {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .terms-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 18px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-auth:hover:not(:disabled) {
+            background: #E8C049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-auth:disabled {
+            background: var(--border-color);
+            color: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .auth-footer p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .auth-footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--white-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .back-home:hover {
+            color: var(--secondary-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .auth-container {
+                padding: 40px 30px;
+            }
+
+            .auth-page {
+                padding: 40px 20px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span>홈으로 돌아가기</span>
+        </a>
+
+        <div class="auth-container">
+            <div class="auth-logo">
+                <a href="index.html">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>지혜로운 손길</span>
+                </a>
+            </div>
+
+            <h1 class="auth-title">회원가입</h1>
+            <p class="auth-subtitle">프리미엄 웹 제작 서비스를 시작하세요</p>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="name">이름 <span class="required">*</span></label>
+                    <input type="text" id="name" class="form-control" placeholder="홍길동" required>
+                    <div class="form-message" id="nameMessage"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
+                    <div class="form-message" id="emailMessage"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">전화번호 <span class="required">*</span></label>
+                    <input type="tel" id="phone" class="form-control" placeholder="010-0000-0000" required>
+                    <div class="form-message" id="phoneMessage"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">비밀번호 <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="8자 이상, 영문+숫자+특수문자" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password', 'toggleIcon1')">
+                            <i class="fas fa-eye" id="toggleIcon1"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bars">
+                            <div class="strength-bar" id="bar1"></div>
+                            <div class="strength-bar" id="bar2"></div>
+                            <div class="strength-bar" id="bar3"></div>
+                            <div class="strength-bar" id="bar4"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">비밀번호를 입력해주세요</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordConfirm">비밀번호 확인 <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="passwordConfirm" class="form-control" placeholder="비밀번호를 다시 입력해주세요" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('passwordConfirm', 'toggleIcon2')">
+                            <i class="fas fa-eye" id="toggleIcon2"></i>
+                        </button>
+                    </div>
+                    <div class="form-message" id="confirmMessage"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">회사명</label>
+                    <input type="text" id="company" class="form-control" placeholder="회사명을 입력해주세요 (선택)">
+                </div>
+
+                <div class="terms-group">
+                    <div class="checkbox-wrapper all-agree">
+                        <input type="checkbox" id="agreeAll">
+                        <label for="agreeAll">전체 동의</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="agreeTerms" class="agree-item" required>
+                        <label for="agreeTerms">
+                            (필수) 이용약관 동의
+                            <a href="terms.html" target="_blank" class="terms-link">보기</a>
+                        </label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="agreePrivacy" class="agree-item" required>
+                        <label for="agreePrivacy">
+                            (필수) 개인정보처리방침 동의
+                            <a href="privacy.html" target="_blank" class="terms-link">보기</a>
+                        </label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="agreeMarketing" class="agree-item">
+                        <label for="agreeMarketing">
+                            (선택) 마케팅 정보 수신 동의
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-auth" id="submitBtn" disabled>회원가입</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>이미 회원이신가요? <a href="login.html">로그인</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>
