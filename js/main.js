@@ -139,24 +139,57 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // =================================
 // 폼 제출 처리
 // =================================
+// 문의 데이터 전송처: 아래 Google Apps Script 웹앱 URL (배포된 스크립트가 시트에 append 등 처리)
+const CONTACT_APPS_SCRIPT_URL =
+    'https://script.google.com/macros/s/AKfycbxO7TI99ezhw44qS82DeHnxp_4YwKZagjPA5eHZ_KVfO5t1tDElKTIuQkGPewFvgUr_/exec';
+
+/** GitHub Pages / 로컬 모두에서 상담 게시판 페이지로 이동 */
+function getBoardPageUrl() {
+    return new URL('board.html', window.location.href).href;
+}
+
+async function postContactToAppsScript(formData) {
+    const jsonBody = JSON.stringify(formData);
+    try {
+        const response = await fetch(CONTACT_APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: jsonBody,
+            mode: 'cors'
+        });
+        if (response.ok) return true;
+    } catch (err) {
+        console.warn('문의 POST (JSON):', err);
+    }
+    try {
+        const body = new URLSearchParams(formData).toString();
+        const response = await fetch(CONTACT_APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body,
+            mode: 'cors'
+        });
+        if (response.ok) return true;
+    } catch (err) {
+        console.warn('문의 POST (form):', err);
+    }
+    return false;
+}
 
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        // 제출 버튼 찾기
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn ? submitBtn.textContent : '';
-        
-        // 버튼 비활성화 및 로딩 표시
+
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = '전송 중...';
         }
-        
-        // 폼 데이터 수집
+
         const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
@@ -164,20 +197,21 @@ if (contactForm) {
             service: document.getElementById('service').value,
             message: document.getElementById('message').value
         };
-        
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxO7TI99ezhw44qS82DeHnxp_4YwKZagjPA5eHZ_KVfO5t1tDElKTIuQkGPewFvgUr_/exec';
+
         try {
-            const response = await fetch(scriptURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-            if (!response.ok) throw new Error('서버 오류');
-            alert('문의가 성공적으로 접수되었습니다! 24시간 이내에 연락드리겠습니다.');
-            contactForm.reset();
+            const ok = await postContactToAppsScript(formData);
+            if (ok) {
+                window.location.assign(getBoardPageUrl());
+                return;
+            }
+            throw new Error('서버 응답 없음');
         } catch (error) {
             console.error('문의 제출 오류:', error);
-            alert('문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.');
+            const boardUrl = getBoardPageUrl();
+            const go = confirm(
+                '문의 전송을 완료하지 못했습니다. 네트워크 또는 서버 설정 문제일 수 있습니다.\n상담 게시판 페이지로 이동할까요?'
+            );
+            if (go) window.location.assign(boardUrl);
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
