@@ -444,7 +444,7 @@ const translations = {
                 desc: 'Automation, accounting, church offering management, music sharing platforms, and more.',
                 feature1: 'Music sharing site (open)',
                 feature2: 'Church finance program — try the demo',
-                feature3: 'Computer programs',
+                feature3: 'Multilingual corporate site',
                 feature4: 'Other programs'
             }
         },
@@ -771,7 +771,7 @@ const translations = {
                 desc: '中小企業向け自動化、会計、教会献金管理、音源共有などを構築します。',
                 feature1: '音源共有サイトへ',
                 feature2: '教会財務プログラム（デモを試す）',
-                feature3: 'コンピュータープログラム',
+                feature3: '多言語企業サイト',
                 feature4: 'その他のプログラム'
             }
         },
@@ -1098,7 +1098,7 @@ const translations = {
                 desc: '中小企业自动化、会计、教会奉献管理、音源共享等系统的构建。',
                 feature1: '进入音源共享网站',
                 feature2: '教会财务程序 — 试用演示版',
-                feature3: '计算机程序',
+                feature3: '多语言企业网站',
                 feature4: '其他程序'
             }
         },

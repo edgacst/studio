@@ -71,7 +71,7 @@ function scrollActive() {
     });
 }
 
-window.addEventListener('scroll', scrollActive);
+// 스크롤 리스너는 파일 하단 throttle 블록 하나만 사용 (중복 등록 시 같은 작업이 매 이벤트마다 두 번 실행되어 버벅임 유발)
 
 // =================================
 // 스크롤 시 헤더 그림자
@@ -90,15 +90,13 @@ function scrollHeader() {
     }
 }
 
-window.addEventListener('scroll', scrollHeader);
-
 // =================================
 // 스크롤 투 탑 버튼
 // =================================
 
 const scrollTopBtn = document.getElementById('scrollTop');
 
-function scrollTop() {
+function scrollTopVisibility() {
     if (!scrollTopBtn) {
         return;
     }
@@ -108,8 +106,6 @@ function scrollTop() {
         scrollTopBtn.classList.remove('show');
     }
 }
-
-window.addEventListener('scroll', scrollTop);
 
 // 버튼 클릭 시 맨 위로 이동
 if (scrollTopBtn) {
@@ -127,16 +123,12 @@ if (scrollTopBtn) {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' || href === '#!') return;
+        const target = document.querySelector(href);
+        if (!target) return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 70;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
 });
 
@@ -494,11 +486,19 @@ function throttle(func, delay) {
 }
 
 // 스크롤 이벤트 최적화
-window.addEventListener('scroll', throttle(() => {
-    scrollActive();
-    scrollHeader();
-    scrollTop();
-}, 100));
+window.addEventListener(
+    'scroll',
+    throttle(() => {
+        scrollActive();
+        scrollHeader();
+        scrollTopVisibility();
+    }, 50),
+    { passive: true }
+);
+
+scrollActive();
+scrollHeader();
+scrollTopVisibility();
 
 // =================================
 // 개발자 콘솔 메시지
