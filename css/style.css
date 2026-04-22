@@ -387,6 +387,7 @@ body {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    display: flex;
 }
 
 .lang-option {
@@ -480,62 +481,6 @@ body {
     display: none;
 }
 
-.language-dropdown .lang-current {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: none;
-    border: none;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: background 0.2s;
-}
-.language-dropdown .lang-current:hover {
-    background: #f0f0f0;
-}
-.lang-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 160px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    z-index: 100;
-    margin-top: 4px;
-    padding: 4px 0;
-}
-.lang-menu.show {
-    display: block;
-}
-.lang-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    background: none;
-    border: none;
-    font: inherit;
-    color: #222;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-    border-radius: 0;
-    user-select: none;
-}
-.lang-option:hover, .lang-option.active {
-    background: #f0f0f0;
-}
-.lang-option .lang-code {
-    margin-left: auto;
-    font-size: 12px;
-    color: #888;
-}
 .nav-close {
     display: none;
     font-size: 1.5rem;
