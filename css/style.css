@@ -58,9 +58,13 @@ select#service {
 }
 
 html {
-    /* 헤더 앵커는 JS에서 즉시 스크롤(scrollIntoView). html에 smooth 두면 이중으로 느려짐 */
-    scroll-behavior: auto;
     font-size: 16px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 /* 고정 헤더 때문에 앵커 이동 시 제목이 가려지지 않도록 */

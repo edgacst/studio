@@ -128,7 +128,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({
+            behavior: reducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
     });
 });
 
@@ -403,14 +407,18 @@ const portfolioContents = document.querySelectorAll('.portfolio-content');
 portfolioTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const targetTab = tab.dataset.tab;
-        
-        // 모든 탭 비활성화
+        const pane = document.getElementById(targetTab);
+        if (!pane) return;
+
         portfolioTabs.forEach(t => t.classList.remove('active'));
         portfolioContents.forEach(c => c.classList.remove('active'));
-        
-        // 클릭한 탭 활성화
+
         tab.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
+        pane.classList.add('active');
+        pane.style.animation = 'none';
+        requestAnimationFrame(() => {
+            pane.style.animation = '';
+        });
     });
 });
 
