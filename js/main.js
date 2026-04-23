@@ -419,7 +419,7 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 // 통계 숫자에 데이터 속성 추가 및 관찰
-document.querySelectorAll('.stat-number').forEach((stat, index) => {
+document.querySelectorAll('.stat-number, .agency-stat-num').forEach((stat, index) => {
     const texts = ['100+', '98%', '24h'];
     const values = [100, 98, 24];
     const suffixes = ['+', '%', 'h'];

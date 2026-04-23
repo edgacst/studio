@@ -34,6 +34,29 @@ const translations = {
             stat2: '고객 만족도',
             stat3: '평균 응답 시간'
         },
+        agency: {
+            topbar_msg: '문의 환영 · 평일 09:00 – 18:00 · 24시 이메일 접수',
+            kicker: 'WEB AGENCY · 맞춤 제작',
+            h1_main: '매출과 신뢰가 오르는',
+            h1_em: '프리미엄 웹 · 프로그램 파트너',
+            panel_title: '상담부터 오픈까지 동행',
+            panel_desc:
+                '브랜드에 맞는 정보 구조·디자인·기능을 설계하고 1:1 맞춤으로 구현합니다.',
+            panel_float: '지혜로운 손길 · (주)에드가씨에스티'
+        },
+        triad: {
+            title: '주요 제작 영역',
+            subtitle:
+                '홈페이지 · 기능성 웹 · 맞춤 프로그램까지 한곳에서 상담하고 설계합니다.',
+            c1_title: '홈페이지 · 브랜드 사이트',
+            c1_desc:
+                '기업·소상공인·포트폴리오까지 메인·서브 페이지와 반응형 설계, SEO 기본까지 포함합니다.',
+            c2_title: '기능성 웹사이트',
+            c2_desc: '쇼핑몰, 게시판·회원, 예약·문의 등 운영에 필요한 기능을 설계해 연결합니다.',
+            c3_title: '맞춤 프로그램 · 연동',
+            c3_desc: '업무 자동화, 계산·헌금 관리, 음원·다국어 등 요구에 맞는 웹 프로그램을 구축합니다.',
+            more: '서비스 상세 보기'
+        },
         // 특징 섹션
         features: {
             subtitle: '왜 지혜로운 손길인가요?',
@@ -392,6 +415,31 @@ const translations = {
             stat2: 'Client Satisfaction',
             stat3: 'Avg Response Time'
         },
+        agency: {
+            topbar_msg: 'Inquiries welcome · Mon–Fri 09:00–18:00 · 24/7 email',
+            kicker: 'WEB AGENCY · Custom builds',
+            h1_main: 'Grow revenue and trust with',
+            h1_em: 'a premium web & program partner',
+            panel_title: 'From consultation to launch',
+            panel_desc:
+                'We plan IA, design, and features for your brand and deliver one-to-one custom implementation.',
+            panel_float: 'Wise Hands · Edgar CST Inc.'
+        },
+        triad: {
+            title: 'What we build',
+            subtitle:
+                'Website, functional web, and custom programs—consult and plan in one place.',
+            c1_title: 'Homepage & brand site',
+            c1_desc:
+                'Corporate, SMB, portfolio—main/sub pages, responsive layout, basic SEO included.',
+            c2_title: 'Functional websites',
+            c2_desc:
+                'E-commerce, boards & membership, booking & inquiry—we design and connect what you need.',
+            c3_title: 'Custom programs & integrations',
+            c3_desc:
+                'Automation, accounting/offering, music/multilingual—we build web programs to your specs.',
+            more: 'View services'
+        },
         // Features
         features: {
             subtitle: 'Why Choose Wise Hands?',
@@ -723,6 +771,31 @@ const translations = {
             stat2: '顧客満足度',
             stat3: '平均応答時間'
         },
+        agency: {
+            topbar_msg: 'お問い合わせ歓迎 · 平日 09:00–18:00 · メールは24時間受付',
+            kicker: 'WEB AGENCY · オーダーメイド',
+            h1_main: '売上と信頼を高める',
+            h1_em: 'プレミアムWeb・システムパートナー',
+            panel_title: '相談から公開まで伴走',
+            panel_desc:
+                'ブランドに合わせた情報設計・デザイン・機能を設計し、1対1で実装します。',
+            panel_float: '賢い手 · エドガCST株式会社'
+        },
+        triad: {
+            title: '主な制作領域',
+            subtitle:
+                'ホームページ・機能性Web・オーダーメイド開発まで、一か所で相談・設計します。',
+            c1_title: 'ホームページ・ブランドサイト',
+            c1_desc:
+                '法人・店舗・ポートフォリオまで、メイン・サブページとレスポンシブ設計、基本SEOを含みます。',
+            c2_title: '機能性ウェブサイト',
+            c2_desc:
+                'EC、掲示板・会員、予約・お問い合わせなど、運営に必要な機能を設計してつなぎます。',
+            c3_title: 'オーダーメイドプログラム・連携',
+            c3_desc:
+                '業務自動化、会計・献金管理、音楽・多言語など、要件に合わせたWebプログラムを構築します。',
+            more: 'サービス詳細を見る'
+        },
         // 特徴
         features: {
             subtitle: 'なぜ賢い手なのか？',
@@ -1053,6 +1126,30 @@ const translations = {
             stat1: '完成项目',
             stat2: '客户满意度',
             stat3: '平均响应时间'
+        },
+        agency: {
+            topbar_msg: '欢迎咨询 · 工作日 09:00–18:00 · 邮件24小时受理',
+            kicker: 'WEB AGENCY · 定制开发',
+            h1_main: '提升销量与信任',
+            h1_em: '高端网站与程序伙伴',
+            panel_title: '从咨询到上线全程陪伴',
+            panel_desc:
+                '为您的品牌规划信息架构、设计与功能，一对一量身定制实现。',
+            panel_float: '智慧之手 · 爱德加CST株式会社'
+        },
+        triad: {
+            title: '主要制作领域',
+            subtitle: '官网、功能性网站与定制程序，一处咨询、一处规划。',
+            c1_title: '官网 · 品牌站点',
+            c1_desc:
+                '企业、小微、作品集—主站与子页、响应式布局、含基础SEO。',
+            c2_title: '功能性网站',
+            c2_desc:
+                '商城、论坛与会员、预约与留言等运营所需功能，设计并贯通。',
+            c3_title: '定制程序 · 对接',
+            c3_desc:
+                '业务自动化、账务与奉献管理、音乐与多语言等，按需求构建网页程序。',
+            more: '查看服务详情'
         },
         // 特点
         features: {
