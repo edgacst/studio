@@ -544,6 +544,31 @@ body {
     z-index: 1;
 }
 
+.hero-badge {
+    margin-bottom: 14px;
+}
+
+.hero-badge span {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    padding: 9px 18px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.hero-lead {
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    max-width: 38rem;
+}
+
 .hero-subtitle {
     display: inline-block;
     color: var(--secondary-color);
@@ -755,6 +780,12 @@ body {
     position: relative;
 }
 
+.services .section-subtitle {
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-size: 1rem;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -767,11 +798,30 @@ body {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    border: 1px solid rgba(26, 35, 50, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0.9;
 }
 
 .service-card:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.35);
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-header {
@@ -2043,9 +2093,33 @@ body {
     color: var(--secondary-color);
 }
 
-.hero-fullbg .stat-number,
+.hero-fullbg .hero-lead {
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.hero-fullbg .hero-description {
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+}
+
+.hero-fullbg .hero-stats {
+    gap: 16px;
+}
+
+.hero-fullbg .stat-item {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    padding: 18px 14px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-fullbg .stat-number {
+    color: var(--secondary-color);
+}
+
 .hero-fullbg .stat-label {
-    color: var(--white-color);
+    color: rgba(255, 255, 255, 0.82);
 }
 
 @keyframes fadeIn {
@@ -2107,6 +2181,10 @@ body {
     
     .hero-title {
         font-size: 2rem;
+    }
+
+    .hero-lead {
+        font-size: 1.05rem;
     }
     
     .hero-description {

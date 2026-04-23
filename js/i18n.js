@@ -21,10 +21,13 @@ const translations = {
         },
         // 히어로 섹션
         hero: {
+            badge: '맞춤형 웹 · 프로그램 제작',
             subtitle: '경험과 지혜가 담긴',
             title1: '당신의 성공을 위한',
             title2: '지혜로운 손길',
-            description: '65년의 인생경험과 최첨단 AI 기술이 만나 당신의 비즈니스를 위한 완벽한 웹사이트를 만듭니다',
+            lead: '고객 니즈를 반영한 완성도 높은 디자인과 기능을 제공합니다.',
+            description:
+                '소상공인·기업·단체까지, 반응형 홈페이지부터 맞춤 프로그램까지 상담부터 오픈·운영까지 함께합니다.',
             cta1: '무료 상담 신청',
             cta2: '포트폴리오 보기',
             stat1: '프로젝트 완료',
@@ -50,9 +53,10 @@ const translations = {
         },
         // 서비스 섹션
         services: {
-            subtitle: '맞춤형 솔루션',
+            subtitle: '홈페이지 · 기능성 웹 · 맞춤 개발',
             title: '제공 서비스',
-            description: '소상공인부터 대기업까지, 모든 규모의 비즈니스를 위한 최적의 웹 솔루션',
+            description:
+                '소상공인 홈페이지부터 기업·쇼핑몰, 맞춤 프로그램까지 비즈니스 규모에 맞는 웹 솔루션',
             small: {
                 title: '소상공인 홈페이지',
                 desc: '카페, 식당, 미용실 등 소상공인을 위한 맞춤형 웹사이트. 메뉴 소개, 위치 안내, 예약 기능 등을 포함합니다.',
@@ -375,10 +379,13 @@ const translations = {
         },
         // Hero Section
         hero: {
+            badge: 'Custom Web & Solutions',
             subtitle: 'Experience Meets Innovation',
             title1: 'Your Success with',
             title2: 'Wise Hands',
-            description: 'Combining 65 years of experience with cutting-edge AI technology to create the perfect website for your business',
+            lead: 'High-quality design and features built around your needs.',
+            description:
+                'From small business to enterprise—responsive sites, e-commerce, and custom systems. We stay with you from consultation to launch.',
             cta1: 'Free Consultation',
             cta2: 'View Portfolio',
             stat1: 'Projects Completed',
@@ -404,9 +411,10 @@ const translations = {
         },
         // Services
         services: {
-            subtitle: 'Custom Solutions',
+            subtitle: 'Corporate · Functional Web · Custom Build',
             title: 'Our Services',
-            description: 'Optimal web solutions for all business sizes, from small businesses to enterprises',
+            description:
+                'Small-business sites to corporate, e-commerce, and custom programs—solutions scaled to your business.',
             small: {
                 title: 'Small Business Website',
                 desc: 'Custom website for cafes, restaurants, salons, and more. Includes menu introduction, location guide, and reservation features.',
@@ -702,10 +710,13 @@ const translations = {
         },
         // ヒーローセクション
         hero: {
+            badge: 'オーダーメイドWeb・システム',
             subtitle: '経験と知恵が込められた',
             title1: 'あなたの成功のための',
             title2: '賢い手',
-            description: '65年の人生経験と最先端のAI技術（Genspark）を組み合わせ、お客様の本当のニーズを理解し、ビジネスの本質を捉えたウェブサイトを制作します。',
+            lead: 'お客様のニーズに沿った高品質なデザインと機能をご提供します。',
+            description:
+                '小規模店舗から法人・団体まで。レスポンシブサイトからオーダーメイド開発まで、相談から公開・運用まで伴走します。',
             cta1: '無料相談申込',
             cta2: 'ポートフォリオを見る',
             stat1: 'プロジェクト完了',
@@ -731,9 +742,10 @@ const translations = {
         },
         // サービス
         services: {
-            subtitle: 'カスタムソリューション',
+            subtitle: 'ホームページ · 機能性サイト · カスタム開発',
             title: '提供サービス',
-            description: '小規模事業者から大企業まで、あらゆる規模のビジネスに最適なウェブソリューション',
+            description:
+                '小規模店舗サイトから企業・EC・オーダーメイド開発まで、規模に合ったウェブソリューション',
             small: {
                 title: '小規模事業者ホームページ',
                 desc: 'カフェ、レストラン、美容室などの小規模事業者のためのカスタムウェブサイト。メニュー紹介、位置案内、予約機能などを含みます。',
@@ -1029,10 +1041,13 @@ const translations = {
         },
         // 主页
         hero: {
+            badge: '定制网站 · 程序开发',
             subtitle: '经验与智慧的结晶',
             title1: '您成功的伙伴',
             title2: '智慧之手',
-            description: '结合65年的人生经验和尖端AI技术（Genspark），创建真正理解您需求并捕捉业务本质的网站。',
+            lead: '以客户需求为中心，交付高完成度的设计与功能。',
+            description:
+                '从小商家到企业与机构——响应式官网、商城到定制程序，咨询、上线与运营全程陪伴。',
             cta1: '免费咨询',
             cta2: '查看作品',
             stat1: '完成项目',
@@ -1058,9 +1073,10 @@ const translations = {
         },
         // 服务
         services: {
-            subtitle: '定制解决方案',
+            subtitle: '官网 · 功能型网站 · 定制开发',
             title: '提供服务',
-            description: '从小型企业到大型企业，为各种规模的业务提供最佳Web解决方案',
+            description:
+                '从小商家官网到企业与商城、定制程序，按规模提供匹配的Web解决方案',
             small: {
                 title: '小型企业官网',
                 desc: '为咖啡馆、餐厅、美容院等小型企业定制的网站。包括菜单介绍、位置指南、预约功能等。',
